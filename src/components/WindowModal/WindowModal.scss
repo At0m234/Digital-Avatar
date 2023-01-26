@@ -1,0 +1,40 @@
+.window-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 500px;
+    height: 350px;
+    background-color: #282E33;
+    border-radius: 10px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background-image: url(../../images/WindowModal/close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+}

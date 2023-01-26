@@ -1,0 +1,18 @@
+.file {
+  display: flex;
+  margin: 10px;
+  height: 60px;
+  cursor: grab;
+  &__img {
+    display: flex;
+    box-sizing: border-box;
+    width: 80px;
+    height: 60px;
+  }
+  &__name {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+  }
+}
