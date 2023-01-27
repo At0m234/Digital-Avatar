@@ -5,7 +5,6 @@ import WindowModal from '../WindowModal/WindowModal';
 function File(props) {
   const [modalOpened, setModalOpened] = useState(false);
   
-
   const openModal = () => {
     setModalOpened(true)
   }
@@ -51,7 +50,9 @@ function File(props) {
       {modalOpened && 
         <WindowModal 
           closeModal={closeModal}
-          children={props.files.map((child) => {
+          appContainer={props.appContainer}
+          
+          children={props.files !== undefined && props.files.map((child) => {
             return <File 
               key={child.id}
               name={child.name}

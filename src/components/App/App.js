@@ -1,9 +1,10 @@
 import './App.scss';
 import initialArray from '../utils/constants';
 import File from '../File/File';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function App() {
+  const appContainer = useRef(null)
   const [fileList, setFileList] = useState(initialArray)
   const [currentFile, setCurrentFile] = useState(null);
 
@@ -16,7 +17,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app" ref={appContainer}>
       {fileList.sort(sortCards).map((file) => {
         return <File 
           key={file.id}
@@ -29,6 +30,8 @@ function App() {
           setFileList={setFileList}
           currentFile={currentFile}
           setCurrentFile={setCurrentFile}
+
+          appContainer={appContainer}
         />
       })}
     </div>
