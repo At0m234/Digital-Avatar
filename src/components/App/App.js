@@ -30,6 +30,7 @@ function App() {
           setFileList={setFileList}
           currentFile={currentFile}
           setCurrentFile={setCurrentFile}
+          sortCards={sortCards}
 
           appContainer={appContainer}
         />

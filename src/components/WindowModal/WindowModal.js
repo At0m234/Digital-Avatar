@@ -17,13 +17,13 @@ function WindowModal(props) {
     const app = props.appContainer.current;
     const modal = modalContainer.current;
 
-    const onMouseDown=(e)=> {
+    const onMouseDown = (e) => {
       isGrabed.current = true
       coordinates.current.startX = e.clientX
       coordinates.current.startY = e.clientY
     }
 
-    const onMouseUp=(e)=> {
+    const onMouseUp = (e) => {
       isGrabed.current = false
       coordinates.current.lastX = modal.offsetLeft
       coordinates.current.lastY = modal.offsetTop
@@ -73,14 +73,15 @@ function WindowModal(props) {
   })
 
   return (
+
     <div className="window-modal" ref={modalContainer}>
+
       <div className='window-modal__container'>
         <button className='window-modal__close' onClick={()=>props.closeModal()}></button>
-        <div className='window-modal__content'>{props.children}</div>
       </div>
+      <div className='window-modal__content'>{props.children}</div>
     </div>
   )
-
 }
 
 export default WindowModal;

@@ -52,11 +52,12 @@ function File(props) {
           closeModal={closeModal}
           appContainer={props.appContainer}
           
-          children={props.files !== undefined && props.files.map((child) => {
+          children={props.files.map((child) => {
             return <File 
               key={child.id}
               name={child.name}
               img={child.img}
+              file={props.file}
             />
           })}
         />
