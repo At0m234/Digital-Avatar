@@ -1,7 +1,9 @@
 import './WindowModal.scss'
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function WindowModal(props) {
+  const [fullSize, setFullSize] = useState(false)
+  const modalContent = useRef(null)
   const modalContainer = useRef(null)
   const isGrabed = useRef(false)
   const coordinates = useRef({
@@ -10,6 +12,24 @@ function WindowModal(props) {
     lastX: 0,
     lastY: 0
   })
+
+  const popupFullSize = () => {
+    setFullSize(!fullSize)
+    const modal = modalContainer.current;
+    const modalCont = modalContent.current
+
+    if(fullSize === true) {
+      modalCont.style.height = 350 + `px`
+      modalCont.style.width = 500 + `px`
+    } else {
+      modal.style.top = 0
+      modal.style.left = 0
+      modalCont.style.height = 100 + `vh`
+      modalCont.style.width = 100 + `vw`
+    }
+  }
+  
+
 
   useEffect(()=> {
     if(!props.appContainer || !modalContainer) return
@@ -77,9 +97,11 @@ function WindowModal(props) {
     <div className="window-modal" ref={modalContainer}>
 
       <div className='window-modal__container'>
-        <button className='window-modal__close' onClick={()=>props.closeModal()}></button>
+        <button className='window-modal__close window-modal__close_type_windows' onClick={()=>popupFullSize()}></button>
+        <button className='window-modal__close window-modal__close_type_close' onClick={()=>props.closeModal()}></button>
       </div>
-      <div className='window-modal__content'>{props.children}</div>
+      <div className='window-modal__content' ref={modalContent}>{props.children}</div>
+
     </div>
   )
 }

@@ -21,12 +21,22 @@
     margin: 5px 5px 0 0;
     width: 30px;
     height: 30px;
-    background-image: url(../../images/WindowModal/close.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: transparent;
     cursor: pointer;
     border: none;
+
+    &_type_windows {
+      background-image: url(../../images/WindowModal/windows.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: transparent;
+    }
+
+    &_type_close {
+      background-image: url(../../images/WindowModal/close.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: transparent;
+    }
   }
 
   &__content {
